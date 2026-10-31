@@ -1,0 +1,351 @@
+{
+  "status": "PASSED",
+  "validation_results": {
+    "primary_key_validation": {
+      "supplier": {
+        "total_rows": 40,
+        "unique_pks": 40,
+        "duplicate_pks": 0,
+        "id_format_violations": 0,
+        "passed": true
+      },
+      "sku": {
+        "total_rows": 2000,
+        "unique_pks": 2000,
+        "duplicate_pks": 0,
+        "id_format_violations": 0,
+        "passed": true
+      },
+      "store": {
+        "total_rows": 100,
+        "unique_pks": 100,
+        "duplicate_pks": 0,
+        "id_format_violations": 0,
+        "passed": true
+      },
+      "supplier_sku": {
+        "total_rows": 2509,
+        "unique_pks": 2509,
+        "duplicate_pks": 0,
+        "id_format_violations": 0,
+        "passed": true
+      },
+      "reorder_policy": {
+        "total_rows": 300,
+        "unique_pks": 300,
+        "duplicate_pks": 0,
+        "id_format_violations": 0,
+        "passed": true
+      },
+      "lead_time_observation": {
+        "total_rows": 6537,
+        "unique_pks": 6537,
+        "duplicate_pks": 0,
+        "id_format_violations": 0,
+        "passed": true
+      },
+      "sales_history": {
+        "total_rows": 109500,
+        "unique_pks": 109500,
+        "duplicate_pks": 0,
+        "id_format_violations": 0,
+        "passed": true
+      },
+      "inventory_snapshot": {
+        "total_rows": 109500,
+        "unique_pks": 109500,
+        "duplicate_pks": 0,
+        "id_format_violations": 0,
+        "passed": true
+      },
+      "forecast": {
+        "total_rows": 300,
+        "unique_pks": 300,
+        "duplicate_pks": 0,
+        "id_format_violations": 0,
+        "passed": true
+      },
+      "purchase_recommendation": {
+        "total_rows": 194,
+        "unique_pks": 194,
+        "duplicate_pks": 0,
+        "id_format_violations": 0,
+        "passed": true
+      }
+    },
+    "foreign_key_validation": {
+      "total_relationships_checked": 20,
+      "total_orphan_records": 0,
+      "all_joins_valid": true,
+      "details": [
+        {
+          "relationship": "supplier_sku.supplier_id -> supplier",
+          "orphan_count": 0,
+          "passed": true
+        },
+        {
+          "relationship": "supplier_sku.sku_id -> sku",
+          "orphan_count": 0,
+          "passed": true
+        },
+        {
+          "relationship": "reorder_policy.store_id -> store",
+          "orphan_count": 0,
+          "passed": true
+        },
+        {
+          "relationship": "reorder_policy.sku_id -> sku",
+          "orphan_count": 0,
+          "passed": true
+        },
+        {
+          "relationship": "reorder_policy.primary_supplier_id -> supplier",
+          "orphan_count": 0,
+          "passed": true
+        },
+        {
+          "relationship": "lead_time_observation.supplier_sku_id -> supplier_sku",
+          "orphan_count": 0,
+          "passed": true
+        },
+        {
+          "relationship": "lead_time_observation.supplier_id -> supplier",
+          "orphan_count": 0,
+          "passed": true
+        },
+        {
+          "relationship": "lead_time_observation.sku_id -> sku",
+          "orphan_count": 0,
+          "passed": true
+        },
+        {
+          "relationship": "lead_time_observation.store_id -> store",
+          "orphan_count": 0,
+          "passed": true
+        },
+        {
+          "relationship": "sales_history.store_id -> store",
+          "orphan_count": 0,
+          "passed": true
+        },
+        {
+          "relationship": "sales_history.sku_id -> sku",
+          "orphan_count": 0,
+          "passed": true
+        },
+        {
+          "relationship": "inventory_snapshot.store_id -> store",
+          "orphan_count": 0,
+          "passed": true
+        },
+        {
+          "relationship": "inventory_snapshot.sku_id -> sku",
+          "orphan_count": 0,
+          "passed": true
+        },
+        {
+          "relationship": "forecast.store_id -> store",
+          "orphan_count": 0,
+          "passed": true
+        },
+        {
+          "relationship": "forecast.sku_id -> sku",
+          "orphan_count": 0,
+          "passed": true
+        },
+        {
+          "relationship": "purchase_recommendation.store_id -> store",
+          "orphan_count": 0,
+          "passed": true
+        },
+        {
+          "relationship": "purchase_recommendation.sku_id -> sku",
+          "orphan_count": 0,
+          "passed": true
+        },
+        {
+          "relationship": "purchase_recommendation.supplier_id -> supplier",
+          "orphan_count": 0,
+          "passed": true
+        },
+        {
+          "relationship": "purchase_recommendation.forecast_id -> forecast",
+          "orphan_count": 0,
+          "passed": true
+        },
+        {
+          "relationship": "purchase_recommendation.policy_id -> reorder_policy",
+          "orphan_count": 0,
+          "passed": true
+        }
+      ]
+    },
+    "domain_and_arithmetic_validation": {
+      "enum_violations": 0,
+      "inventory_balance_reconciliation_errors": 0,
+      "inventory_position_snapshot_mismatches": 0,
+      "sku_shelf_capacity_violations": 0,
+      "store_aggregate_capacity_violations": 0,
+      "forecast_period_date_alignment_errors": 0,
+      "unexplained_po_constraint_failures": 0,
+      "all_clean_records_valid": true
+    },
+    "anomaly_and_ground_truth_audit": {
+      "STOCKOUT_MISTAKEN_FOR_ZERO_DEMAND": {
+        "ground_truth_count": 15,
+        "detected_count": 15,
+        "exact_match": true
+      },
+      "REORDER_IGNORES_PACK_SIZE": {
+        "ground_truth_count": 7,
+        "detected_count": 7,
+        "exact_match": true
+      },
+      "DISCONTINUED_SKU_RECOMMENDED": {
+        "ground_truth_count": 3,
+        "detected_count": 3,
+        "exact_match": true
+      },
+      "LEAD_TIME_NEGATIVE": {
+        "ground_truth_count": 8,
+        "detected_count": 8,
+        "exact_match": true
+      },
+      "FORECAST_USES_FUTURE_SALES": {
+        "ground_truth_count": 8,
+        "detected_count": 8,
+        "exact_match": true
+      }
+    },
+    "temporal_holdout_forecast_metrics": {
+      "forecast_period": "2026-01",
+      "cutoff_date": "2025-12-31",
+      "holdout_window_start": "2026-01-01",
+      "holdout_window_end": "2026-01-14",
+      "horizon_days": 14,
+      "evaluated_clean_series": 292,
+      "mae_units": 13.082,
+      "wape_ratio": 0.1235,
+      "mean_signed_bias_units": -6.919,
+      "baseline_comparison": {
+        "baseline_method": "NAIVE_UNIMPUTED_MOVING_AVG_56D (treats stockouts as zero demand)",
+        "baseline_mae_units": 20.812,
+        "baseline_wape_ratio": 0.1965,
+        "baseline_mean_signed_bias_units": -16.16,
+        "imputed_vs_baseline_wape_reduction_pct": 37.15
+      }
+    }
+  },
+  "reproducibility_verification": {
+    "fixed_seed_tested": 20261022,
+    "scale_mode": "starter",
+    "reproducible_100_percent": true,
+    "file_comparisons": {
+      "supplier.csv": {
+        "run_1_rows": 40,
+        "run_2_rows": 40,
+        "run_1_sha256": "18079fa706e8dda1005145cfe170d6753ce07e8f8d00713d7dfa09ec860c6460",
+        "run_2_sha256": "18079fa706e8dda1005145cfe170d6753ce07e8f8d00713d7dfa09ec860c6460",
+        "identical": true
+      },
+      "sku.csv": {
+        "run_1_rows": 2000,
+        "run_2_rows": 2000,
+        "run_1_sha256": "a07b06f45b45f22b0108ac351329a6e2e26fbf26ce8f9d0231fdbc6175c9c57f",
+        "run_2_sha256": "a07b06f45b45f22b0108ac351329a6e2e26fbf26ce8f9d0231fdbc6175c9c57f",
+        "identical": true
+      },
+      "store.csv": {
+        "run_1_rows": 100,
+        "run_2_rows": 100,
+        "run_1_sha256": "e1e0c0f5d7323a2c1477c1e782aa1bd011626cbcf4933d7b3a38257678c5975d",
+        "run_2_sha256": "e1e0c0f5d7323a2c1477c1e782aa1bd011626cbcf4933d7b3a38257678c5975d",
+        "identical": true
+      },
+      "supplier_sku.csv": {
+        "run_1_rows": 2509,
+        "run_2_rows": 2509,
+        "run_1_sha256": "664cf98300fcc5f6adadf426cb1d1c23c3c7765bb27fa7a87770fd8668b55fc1",
+        "run_2_sha256": "664cf98300fcc5f6adadf426cb1d1c23c3c7765bb27fa7a87770fd8668b55fc1",
+        "identical": true
+      },
+      "reorder_policy.csv": {
+        "run_1_rows": 300,
+        "run_2_rows": 300,
+        "run_1_sha256": "ebb47d01009c39da7f895c0683336d473f0f1691f3efe9d55efe1576812800c6",
+        "run_2_sha256": "ebb47d01009c39da7f895c0683336d473f0f1691f3efe9d55efe1576812800c6",
+        "identical": true
+      },
+      "lead_time_observation.csv": {
+        "run_1_rows": 6537,
+        "run_2_rows": 6537,
+        "run_1_sha256": "edc2100c7ac34a518b540e0cebb0229e1064496b95410d2b78c712c0bd9e54d0",
+        "run_2_sha256": "edc2100c7ac34a518b540e0cebb0229e1064496b95410d2b78c712c0bd9e54d0",
+        "identical": true
+      },
+      "sales_history.csv": {
+        "run_1_rows": 109500,
+        "run_2_rows": 109500,
+        "run_1_sha256": "ecb3718de5a587deabdbca49fc1ad75bf123a2f9bcf9843d7bf06a3b8b67cfba",
+        "run_2_sha256": "ecb3718de5a587deabdbca49fc1ad75bf123a2f9bcf9843d7bf06a3b8b67cfba",
+        "identical": true
+      },
+      "inventory_snapshot.csv": {
+        "run_1_rows": 109500,
+        "run_2_rows": 109500,
+        "run_1_sha256": "9f76c29562a4916efbcabb7b40405524844b779a3bed890df33d2829bfa84c8c",
+        "run_2_sha256": "9f76c29562a4916efbcabb7b40405524844b779a3bed890df33d2829bfa84c8c",
+        "identical": true
+      },
+      "forecast.csv": {
+        "run_1_rows": 300,
+        "run_2_rows": 300,
+        "run_1_sha256": "efbaed3848c335ffabda74158f9d4e69492ff39dfa6a333cf07b3e15f55fdc78",
+        "run_2_sha256": "efbaed3848c335ffabda74158f9d4e69492ff39dfa6a333cf07b3e15f55fdc78",
+        "identical": true
+      },
+      "purchase_recommendation.csv": {
+        "run_1_rows": 194,
+        "run_2_rows": 194,
+        "run_1_sha256": "0c16896d76463cd07c2b0b60cca9a4510fc1e449147dff334a8c004a3e253aa4",
+        "run_2_sha256": "0c16896d76463cd07c2b0b60cca9a4510fc1e449147dff334a8c004a3e253aa4",
+        "identical": true
+      },
+      "ground_truth.csv": {
+        "run_1_rows": 47,
+        "run_2_rows": 47,
+        "run_1_sha256": "35daa729e4801d38c1a8562644950134a24f9a1b85cc56b46928e9ccae9c455f",
+        "run_2_sha256": "35daa729e4801d38c1a8562644950134a24f9a1b85cc56b46928e9ccae9c455f",
+        "identical": true
+      },
+      "ground_truth.json": {
+        "run_1_rows": 47,
+        "run_2_rows": 47,
+        "run_1_sha256": "0ebe792cc3c66744cd0cc10985bd6296c81be9657acde9fc75ccb73637f40805",
+        "run_2_sha256": "0ebe792cc3c66744cd0cc10985bd6296c81be9657acde9fc75ccb73637f40805",
+        "identical": true
+      },
+      "forecast.json": {
+        "run_1_rows": 300,
+        "run_2_rows": 300,
+        "run_1_sha256": "41635140a59dc7d2a129680992b108f7573f9df731518236153898c27d509485",
+        "run_2_sha256": "41635140a59dc7d2a129680992b108f7573f9df731518236153898c27d509485",
+        "identical": true
+      },
+      "purchase_recommendation.json": {
+        "run_1_rows": 194,
+        "run_2_rows": 194,
+        "run_1_sha256": "fcf13c4355c3619ec131eb1a7202180c6c6af10e9b16bb47080e4bb4fe30eb22",
+        "run_2_sha256": "fcf13c4355c3619ec131eb1a7202180c6c6af10e9b16bb47080e4bb4fe30eb22",
+        "identical": true
+      },
+      "seed_data.sql": {
+        "run_1_rows": 1584,
+        "run_2_rows": 1584,
+        "run_1_sha256": "eee014f92f9f1522928aee5e11e24ef265b0c10e18d4e23c0fd6c710b647ad03",
+        "run_2_sha256": "eee014f92f9f1522928aee5e11e24ef265b0c10e18d4e23c0fd6c710b647ad03",
+        "identical": true
+      }
+    }
+  }
+}

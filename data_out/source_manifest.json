@@ -1,0 +1,91 @@
+{
+  "project": "SKU-Location Demand Forecasting & Replenishment Engine",
+  "generator_script": "backend/generate_pipeline.py",
+  "python_compatibility": "Python 3.10+ (Windows 10 / Linux / macOS)",
+  "fixed_seed": 20261022,
+  "scale_mode": "starter",
+  "parameters": {
+    "mode": "starter",
+    "num_skus": 2000,
+    "num_stores": 100,
+    "num_suppliers": 40,
+    "num_days": 365,
+    "active_matrix_pairs": 300
+  },
+  "simulation_window": {
+    "start_date": "2025-01-16",
+    "cutoff_date": "2025-12-31",
+    "holdout_start_date": "2026-01-01",
+    "end_date": "2026-01-14",
+    "forecast_period": "2026-01",
+    "train_days": 351,
+    "holdout_days": 14
+  },
+  "provenance": {
+    "data_origin": "100% synthetic data generated deterministically from domain rules",
+    "external_data_used": false,
+    "license": "MIT / Permissive Open Synthetic Benchmark"
+  },
+  "files": {
+    "supplier.csv": {
+      "row_count": 40,
+      "sha256": "18079fa706e8dda1005145cfe170d6753ce07e8f8d00713d7dfa09ec860c6460"
+    },
+    "sku.csv": {
+      "row_count": 2000,
+      "sha256": "a07b06f45b45f22b0108ac351329a6e2e26fbf26ce8f9d0231fdbc6175c9c57f"
+    },
+    "store.csv": {
+      "row_count": 100,
+      "sha256": "e1e0c0f5d7323a2c1477c1e782aa1bd011626cbcf4933d7b3a38257678c5975d"
+    },
+    "supplier_sku.csv": {
+      "row_count": 2509,
+      "sha256": "664cf98300fcc5f6adadf426cb1d1c23c3c7765bb27fa7a87770fd8668b55fc1"
+    },
+    "reorder_policy.csv": {
+      "row_count": 300,
+      "sha256": "ebb47d01009c39da7f895c0683336d473f0f1691f3efe9d55efe1576812800c6"
+    },
+    "lead_time_observation.csv": {
+      "row_count": 6537,
+      "sha256": "edc2100c7ac34a518b540e0cebb0229e1064496b95410d2b78c712c0bd9e54d0"
+    },
+    "sales_history.csv": {
+      "row_count": 109500,
+      "sha256": "ecb3718de5a587deabdbca49fc1ad75bf123a2f9bcf9843d7bf06a3b8b67cfba"
+    },
+    "inventory_snapshot.csv": {
+      "row_count": 109500,
+      "sha256": "9f76c29562a4916efbcabb7b40405524844b779a3bed890df33d2829bfa84c8c"
+    },
+    "forecast.csv": {
+      "row_count": 300,
+      "sha256": "efbaed3848c335ffabda74158f9d4e69492ff39dfa6a333cf07b3e15f55fdc78"
+    },
+    "purchase_recommendation.csv": {
+      "row_count": 194,
+      "sha256": "0c16896d76463cd07c2b0b60cca9a4510fc1e449147dff334a8c004a3e253aa4"
+    },
+    "ground_truth.csv": {
+      "row_count": 47,
+      "sha256": "35daa729e4801d38c1a8562644950134a24f9a1b85cc56b46928e9ccae9c455f"
+    },
+    "ground_truth.json": {
+      "row_count": 47,
+      "sha256": "0ebe792cc3c66744cd0cc10985bd6296c81be9657acde9fc75ccb73637f40805"
+    },
+    "forecast.json": {
+      "row_count": 300,
+      "sha256": "41635140a59dc7d2a129680992b108f7573f9df731518236153898c27d509485"
+    },
+    "purchase_recommendation.json": {
+      "row_count": 194,
+      "sha256": "fcf13c4355c3619ec131eb1a7202180c6c6af10e9b16bb47080e4bb4fe30eb22"
+    },
+    "seed_data.sql": {
+      "row_count": 1584,
+      "sha256": "eee014f92f9f1522928aee5e11e24ef265b0c10e18d4e23c0fd6c710b647ad03"
+    }
+  }
+}
