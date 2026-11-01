@@ -73,16 +73,6 @@ python --version
 pip install -r requirements.txt
 ```
 
-### ## 4. Temporal Holdout Window & Baseline Forecasting Benchmark
-
-- **365-Day Simulation Window**: `2025-01-15` through `2026-01-14`
-  - **Training Window (351 days)**: `2025-01-15` through `2025-12-31` (Cutoff Date = `2025-12-31`)
-  - **Holdout Evaluation Window (14 days, `forecast_period = 2026-01`)**: `2026-01-01` through `2026-01-14` (`FC-<store-id>-<sku>-2026-01`)
-
-- **Stockout-Aware Imputed Model vs. Simple Naive Baseline**:
-  - **Simple Naive Baseline (`baseline_naive_total_units`)**: Trailing 56-day simple moving average of raw recorded `units_sold` (which treats stockout days with 0 units sold as zero customer demand). Achieves **19.65% WAPE** (`MAE = 20.81` units, `Bias = -16.16` units).
-  - **Stockout-Imputed Forecast (`forecast_total_units`)**: Excludes days where `stockout_censored_flag == True` when estimating velocity. Achieves **12.35% WAPE** (`MAE = 13.08` units, `Bias = -6.92` units)—a **37.15% relative reduction in WAPE** by eliminating stockout downward bias.'''
-
 ### Step 5: Execute the Validation, Holdout Evaluation & Reproducibility Suite (`backend\validate_and_evaluate.py`)
 Checks primary-key uniqueness, foreign-key integrity across all 20 relationships, allowed enums, inventory balance & position reconciliation (`closing_on_hand + on_order == inventory_position`), SKU-shelf and Store-level storage capacity ceilings, temporal holdout forecast accuracy vs. a naive baseline, ground-truth anomaly detection, and dual-run SHA-256 checksum reproducibility:
 ```powershell
