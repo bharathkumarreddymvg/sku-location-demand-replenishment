@@ -73,6 +73,12 @@ python --version
 pip install -r requirements.txt
 ```
 
+### Step 4: Verify the Generated Dataset
+
+The project includes generated datasets in the `data_out/` directory. Verify that the required CSV, JSON, and SQL output files are present before running validation.
+
+Check that the dataset dates and forecast evaluation window match the benchmark documented in this README.
+
 ### Step 5: Execute the Validation, Holdout Evaluation & Reproducibility Suite (`backend\validate_and_evaluate.py`)
 Checks primary-key uniqueness, foreign-key integrity across all 20 relationships, allowed enums, inventory balance & position reconciliation (`closing_on_hand + on_order == inventory_position`), SKU-shelf and Store-level storage capacity ceilings, temporal holdout forecast accuracy vs. a naive baseline, ground-truth anomaly detection, and dual-run SHA-256 checksum reproducibility:
 ```powershell
